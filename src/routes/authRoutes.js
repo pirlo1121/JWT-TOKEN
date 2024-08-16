@@ -11,6 +11,7 @@ router.post('/login', (req, res)=>{
     const token = jwt.sign(data, secretKey);
 
     res.json({token});
+    console.log(token)
 
   } else {
     res.status(401).json({message: "credenciales invalidas"});
@@ -18,3 +19,4 @@ router.post('/login', (req, res)=>{
 })
 
 module.exports = router;
+

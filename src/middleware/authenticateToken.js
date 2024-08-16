@@ -7,9 +7,15 @@ const validartoken = (req, res, next) => {
 
   if (token == null) return res.status(401).json({ok: "el token no existe o no está"});
 
+  jwt.verify(token, secretKey, (err, data)=>{
+    if( err) return console.log("el token es invalido")
+
+    console.log(data);
+
+  })
 
 
-  // next()
+  next()
 };
 
 module.exports = validartoken;

@@ -3,7 +3,7 @@ const validartoken = require('../middleware/authenticateToken');
 
 const router = express.Router();
 
-router.get('/protected',(req, res) => {
+router.get('/protected',validartoken, (req, res) => {
   res.json({ message: 'funcionó el token'});
 });
 
